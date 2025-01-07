@@ -27,11 +27,6 @@ func CreateTask(c *fiber.Ctx) error {
 		return c.Status(400).JSON(fiber.Map{"error": "Cannot parse JSON"})
 	}
 
-	if !isValidStatus(string(task.Status)) {
-		return c.Status(400).JSON(fiber.Map{"error": "Invalid status value"})
-	}
-
-	task.Status = models.StatusBacklog
 	if err := config.DB.Create(&task).Error; err != nil {
 		return c.Status(500).JSON(fiber.Map{"error": "Failed to create task"})
 	}
