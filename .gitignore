@@ -19,3 +19,4 @@ tasks.db
 *.log
 *.tmp
 *.bak
+tasks.db
