@@ -28,3 +28,4 @@ function dropIt(ev) {
         holderText = '';
     }
 }
+
