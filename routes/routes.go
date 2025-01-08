@@ -8,11 +8,13 @@ import (
 
 func TaskRoutes(app *fiber.App) {
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.Redirect("/tasks")
+		return c.Redirect("/board")
 	})
-	tasks := app.Group("/tasks")
-	tasks.Get("/", controllers.GetAllTasks)
-	tasks.Post("/", controllers.CreateTask)
-	tasks.Put("/:id", controllers.UpdateTask)
-	tasks.Delete("/:id", controllers.DeleteTask)
+	board := app.Group("/board")
+	board.Get("/", controllers.GetAllContainers)
+	board.Post("/task", controllers.CreateTask)
+	board.Post("/container", controllers.CreateContainer)
+	board.Put("/task/:id", controllers.UpdateTask)
+	board.Put("/container/:id", controllers.UpdateContainer)
+	board.Delete("/task/:id", controllers.DeleteTask)
 }

@@ -30,11 +30,13 @@ for (item of inputs) {
   item.addEventListener('blur', inputBlurHandler);
 }
 
-function inputBlurHandler(e) {
-  this.classList.add('inactive');
-  this.disabled = true;
-  this.classList.remove('active');
-  list.options.disabled = false;
+class inputBlurHandler {
+  constructor(e) {
+    this.classList.add('inactive');
+    this.disabled = true;
+    this.classList.remove('active');
+    list.options.disabled = false;
+  }
 }
 
 var body = document.querySelector('body');

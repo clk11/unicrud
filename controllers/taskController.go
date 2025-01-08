@@ -7,26 +7,9 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func isValidStatus(status string) bool {
-	return status == string(models.StatusBacklog) ||
-		status == string(models.StatusInProgress) ||
-		status == string(models.StatusDone)
-}
-
-func GetAllTasks(c *fiber.Ctx) error {
-	var tasks []models.Task
-	if err := config.DB.Find(&tasks).Error; err != nil {
-		return c.Status(500).JSON(fiber.Map{"error": "Failed to fetch tasks"})
-	}
-	// We don't need to add the "Template" key bacause its defaulted to index
-	return c.Render("layout", fiber.Map{
-		"Tasks": tasks,
-	})
-}
-
 func CreateTask(c *fiber.Ctx) error {
 	task := new(models.Task)
-	if err := c.BodyParser(task); err != nil {
+	if err := c.BodyParser(&task); err != nil {
 		return c.Status(400).JSON(fiber.Map{"error": "Cannot parse JSON"})
 	}
 
@@ -45,10 +28,6 @@ func UpdateTask(c *fiber.Ctx) error {
 
 	if err := c.BodyParser(&task); err != nil {
 		return c.Status(400).JSON(fiber.Map{"error": "Cannot parse JSON"})
-	}
-
-	if !isValidStatus(string(task.Status)) {
-		return c.Status(400).JSON(fiber.Map{"error": "Invalid status value"})
 	}
 
 	if err := config.DB.Save(&task).Error; err != nil {
