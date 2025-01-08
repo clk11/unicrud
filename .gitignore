@@ -20,3 +20,5 @@ tasks.db
 *.tmp
 *.bak
 tasks.db
+tmp
+.main
