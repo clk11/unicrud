@@ -20,7 +20,7 @@ func GetAllTasks(c *fiber.Ctx) error {
 	}
 	// We don't need to add the "Template" key bacause its defaulted to index
 	return c.Render("layout", fiber.Map{
-		"Tasks": tasks,	
+		"Tasks": tasks,
 	})
 }
 
