@@ -14,6 +14,8 @@ func main() {
 
 	config.ConnectDatabase()
 
+	app.Static("/static", "./static")
+
 	routes.TaskRoutes(app)
 
 	log.Fatal(app.Listen(":3000"))
