@@ -19,6 +19,6 @@ tasks.db
 *.log
 *.tmp
 *.bak
-tasks.db
+tasksmanager.db
 tmp
 .main
