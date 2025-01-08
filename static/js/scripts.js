@@ -27,5 +27,4 @@ function dropIt(ev) {
         sourceIdEl.textContent = holderText;
         holderText = '';
     }
-
 }

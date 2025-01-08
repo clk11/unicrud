@@ -18,7 +18,10 @@ func GetAllTasks(c *fiber.Ctx) error {
 	if err := config.DB.Find(&tasks).Error; err != nil {
 		return c.Status(500).JSON(fiber.Map{"error": "Failed to fetch tasks"})
 	}
-	return c.JSON(tasks)
+	// We don't need to add the "Template" key bacause its defaulted to index
+	return c.Render("layout", fiber.Map{
+		"Tasks": tasks,
+	})
 }
 
 func CreateTask(c *fiber.Ctx) error {
