@@ -1,0 +1,76 @@
+:root {
+    --modal-padding: 2rem;
+    --modal-width: 90%; 
+    --modal-max-width: 30rem;
+    --modal-bg-color: #fff;
+    --modal-text-color: #333;
+    --modal-title-font-size: 1.8rem;
+    --modal-description-font-size: 1.2rem;
+    --modal-date-font-size: 0.9rem;
+    --modal-close-font-size: 1.5rem;
+    --modal-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    --modal-border-radius: 0.8rem;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--modal-bg-color);
+    color: var(--modal-text-color);
+    padding: var(--modal-padding);
+    border-radius: var(--modal-border-radius);
+    width: var(--modal-width);
+    max-width: var(--modal-max-width);
+    box-shadow: var(--modal-shadow);
+    text-align: center;
+    position: relative;
+}
+
+.modal-date {
+    font-size: var(--modal-date-font-size);
+    color: #777;
+    font-style: italic;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    margin: 0;
+}
+
+.close-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    font-size: var(--modal-close-font-size);
+    font-weight: bold;
+    color: red;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #000;
+}
+
+.modal-title {
+    font-size: var(--modal-title-font-size);
+    font-weight: bold;
+    margin-top: 3rem; 
+    margin-bottom: 1rem;
+}
+
+.modal-description {
+    font-size: var(--modal-description-font-size);
+    color: #555;
+    margin-bottom: 2rem;
+}
