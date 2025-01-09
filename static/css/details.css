@@ -1,0 +1,96 @@
+:root {
+    --modal-padding: 2rem;
+    --modal-width: 90%; 
+    --modal-max-width: 32rem;
+    --modal-bg-color: #fff;
+    --modal-text-color: #333;
+    --modal-title-font-size: 2rem;
+    --modal-description-font-size: 1.4rem;
+    --modal-date-font-size: 1rem;
+    --modal-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    --modal-border-radius: 0.8rem;
+    --modal-heading-font: 'Roboto', sans-serif;
+    --modal-body-font: 'Open Sans', sans-serif;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--modal-bg-color);
+    color: var(--modal-text-color);
+    padding: var(--modal-padding);
+    border-radius: var(--modal-border-radius);
+    width: var(--modal-width);
+    max-width: var(--modal-max-width);
+    box-shadow: var(--modal-shadow);
+    text-align: center;
+    position: relative;
+    font-family: var(--modal-body-font);
+}
+
+.modal-date {
+    font-size: var(--modal-date-font-size);
+    color: #777;
+    font-style: italic;
+    position: absolute;
+    top: 1.2rem;
+    left: 1.2rem;
+    margin: 0;
+    font-family: var(--modal-body-font);
+}
+
+.close-button {
+    position: absolute;
+    top: 0.2rem;
+    right: 1rem;
+    font-size: 1.9rem;
+    font-weight: bold;
+    color: red;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #000;
+}
+
+.modal-title {
+    font-size: var(--modal-title-font-size);
+    font-weight: 600;
+    margin-top: 3rem; 
+    margin-bottom: 1rem;
+    font-family: var(--modal-heading-font);
+    color: #222;
+}
+
+.modal-description {
+    font-size: var(--modal-description-font-size);
+    color: #555;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.edit-icon {
+    position: absolute;
+    top: 0.5rem;
+    right: 3.2rem;
+    font-size: 1.5rem;
+    color: rgb(160, 160, 6);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.edit-icon:hover {
+    color: black;
+}
