@@ -2,30 +2,45 @@
 <div class="board-layout">
     {{template "details"}}
     <div id='boardlists' class="board-lists">
-        <!-- Backlog List -->
+        <!-- Backlog Section -->
         <div id='backlog' class="board-list" ondrop="dropIt(event)" ondragover="allowDrop(event)">
-            <div class="list-title" ondragover="event.stopPropagation();" ondrop="event.stopPropagation();">
-                BACKLOG
+            <div class="list-title-container" ondragover="event.stopPropagation();" ondrop="event.stopPropagation();">
+                <div class="list-title">
+                    BACKLOG
+                </div>
+                <button class="add-task-btn" onclick="addTask('backlog')">
+                    <span class="icon">+</span> Add Task
+                </button>
             </div>
             {{range .Backlog}}
             {{template "card" .}}
             {{end}}
         </div>
 
-        <!-- In Progress List -->
+        <!-- In Progress Section -->
         <div id='in_progress' class="board-list" ondrop="dropIt(event)" ondragover="allowDrop(event)">
-            <div class="list-title" ondragover="event.stopPropagation();" ondrop="event.stopPropagation();">
-                IN PROGRESS
+            <div class="list-title-container" ondragover="event.stopPropagation();" ondrop="event.stopPropagation();">
+                <div class="list-title">
+                    IN PROGRESS
+                </div>
+                <button class="add-task-btn" onclick="addTask('in_progress')">
+                    <span class="icon">+</span> Add Task
+                </button>
             </div>
             {{range .InProgress}}
             {{template "card" .}}
             {{end}}
         </div>
 
-        <!-- Done List -->
+        <!-- Done Section -->
         <div id='done' class="board-list" ondrop="dropIt(event)" ondragover="allowDrop(event)">
-            <div class="list-title" ondragover="event.stopPropagation();" ondrop="event.stopPropagation();">
-                DONE
+            <div class="list-title-container" ondragover="event.stopPropagation();" ondrop="event.stopPropagation();">
+                <div class="list-title">
+                    DONE
+                </div>
+                <button class="add-task-btn" onclick="addTask('done')">
+                    <span class="icon">+</span> Add Task
+                </button>
             </div>
             {{range .Done}}
             {{template "card" .}}
