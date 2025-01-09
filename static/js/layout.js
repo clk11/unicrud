@@ -30,13 +30,11 @@ for (item of inputs) {
   item.addEventListener('blur', inputBlurHandler);
 }
 
-class inputBlurHandler {
-  constructor(e) {
-    this.classList.add('inactive');
-    this.disabled = true;
-    this.classList.remove('active');
-    list.options.disabled = false;
-  }
+function inputBlurHandler(e) {
+  this.classList.add('inactive');
+  this.disabled = true;
+  this.classList.remove('active');
+  list.options.disabled = false;
 }
 
 var body = document.querySelector('body');
@@ -51,7 +49,7 @@ function bodyClickHandler(e) {
   var isInactive = el.classList.contains('inactive');
   var isEditable = el.classList.contains('editable');
   var editing = el.classList.contains('editing');
-
+  
   if (isCard && isInactive) {
     list.options.disabled = true;
     el.disabled = false;
@@ -59,7 +57,7 @@ function bodyClickHandler(e) {
     el.classList.add('active');
     el.select();
   }
-
+  
   if (isTitle && isInactive) {
     list.options.disabled = true;
     el.disabled = false;
@@ -67,15 +65,15 @@ function bodyClickHandler(e) {
     el.classList.add('active');
     el.select();
   }
-
+  
   if (isEditable && !editing) {
     el.contentEditable = true;
     el.focus();
-    document.execCommand('selectAll', false, null);
+    document.execCommand('selectAll',false,null);
     el.addEventListener('blur', elBlurHandler);
     el.addEventListener('keypress', elKeypressHandler);
     el.classList.add('editing');
-
+    
     if (el.parentElement.className === 'add-list') {
       el.parentElement.className = 'list initial';
     }
@@ -87,23 +85,25 @@ function elKeypressHandler(e) {
     e.preventDefault();
     e.target.blur();
   }
-
+  
   var el = e.target;
   if (el.classList.contains('add-card')) {
-    el.classList.add('pending');
+    el.classList.add('pending'); 
   }
 
-
+    
   if (el.parentElement.className === 'list initial') {
     el.parentElement.className = 'list pending';
   }
+  
+  // el.removeEventListener('keypress', elKeypressHandler);
 }
 
 function elBlurHandler(e) {
   var el = e.target;
   el.contentEditable = false;
   el.classList.remove('editing');
-
+  
   if (el.classList.contains('pending')) {
     el.className = 'card removable editable';
     var newEl = document.createElement('div');
@@ -111,31 +111,31 @@ function elBlurHandler(e) {
     var text = document.createTextNode('Add another card');
     newEl.appendChild(text);
     el.parentNode.appendChild(newEl);
-
+    
     el.parentNode.querySelector('.content').appendChild(el);
   }
-
+  
   if (el.parentElement.className === 'list initial') {
     el.parentElement.className = 'add-list';
   }
-
+  
   if (el.parentElement.className === 'list pending') {
     el.parentElement.className = 'list';
     el.className = 'title removable editable';
     var newContent = document.createElement('div');
     newContent.className = 'content';
     el.parentElement.appendChild(newContent);
-
+    
     var newEl = document.createElement('div');
     newEl.className = 'add-card editable';
     var text = document.createTextNode('Add another card');
     newEl.appendChild(text);
     el.parentNode.appendChild(newEl);
-
+    
     document.querySelector('#main').appendChild(el.parentElement);
-
+    
     initContent();
-
+    
     var addList = document.createElement('div');
     addList.className = 'add-list';
     var title = document.createElement('div');
@@ -145,7 +145,7 @@ function elBlurHandler(e) {
     addList.appendChild(title);
     document.querySelector('body').appendChild(addList);
   }
-
+  
   initDelete();
 }
 
@@ -163,7 +163,7 @@ initDelete();
 function elMouseEnterHandler(e) {
   var el = e.target;
   var isRemovable = el.classList.contains('removable');
-
+  
   if (isRemovable) {
     var del = document.createElement('span');
     del.className = 'del';
@@ -182,11 +182,11 @@ function elMouseLeaveHandler(e) {
 
 function deleteHandler(e) {
   var parent = e.target.parentElement;
-
+  
   if (parent.classList.contains('card')) {
     parent.parentElement.removeChild(parent);
   }
-
+  
   if (parent.classList.contains('title')) {
     parent.parentElement.parentElement.removeChild(parent.parentElement);
   }

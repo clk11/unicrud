@@ -1,11 +1,9 @@
 {{define "content"}}
 <div id="main">
-   {{range .Containers}}
-    {{template "container" .}}
-   {{end}}
-</div>
-
-<div class="add-list">
+    {{range .Containers}}
+        {{template "container" .}}
+    {{end}}
+  <div class="add-list">
     <div class="title editable">Add another list</div>
-</div>
+  </div>
 {{end}}

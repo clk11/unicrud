@@ -1,11 +1,9 @@
 {{define "container"}}
 <div class="list">
-    <div class="title removable editable">{{.Name}}</div> 
+    <div class="title removable editable">{{.Title}}</div>
     <div class="content">
         {{range .Tasks}}
-        <div class="card removable editable">
-            <div class="title">{{.Title}}</div>
-        </div>
+        <div class="card removable editable">{{.Title}}</div>
         {{end}}
     </div>
     <div class="add-card editable">Add another card</div>

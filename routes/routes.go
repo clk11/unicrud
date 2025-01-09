@@ -17,4 +17,5 @@ func TaskRoutes(app *fiber.App) {
 	board.Put("/task/:id", controllers.UpdateTask)
 	board.Put("/container/:id", controllers.UpdateContainer)
 	board.Delete("/task/:id", controllers.DeleteTask)
+	board.Delete("/container/:id", controllers.DeleteContainer)
 }
