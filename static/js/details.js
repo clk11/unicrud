@@ -44,7 +44,7 @@ function editModal() {
     const detailsModalTitleInput = document.getElementById('detailsModalTitleInput');
     const detailsModalDescription = document.getElementById('detailsModalDescription');
     const detailsModalDescriptionInput = document.getElementById('detailsModalDescriptionInput');
-    const saveButton = document.getElementById('saveButton');
+    const saveTask = document.getElementById('saveTask');
 
     detailsModalTitleInput.value = detailsModalTitle.textContent;
     detailsModalDescriptionInput.value = detailsModalDescription.textContent;
@@ -53,14 +53,14 @@ function editModal() {
     detailsModalDescription.style.display = 'none';
     detailsModalTitleInput.style.display = 'block';
     detailsModalDescriptionInput.style.display = 'block';
-    saveButton.style.display = 'block';
+    saveTask.style.display = 'block';
 }
 async function saveTask() {
     const detailsModalTitle = document.getElementById('detailsModalTitle');
     const detailsModalTitleInput = document.getElementById('detailsModalTitleInput');
     const detailsModalDescription = document.getElementById('detailsModalDescription');
     const detailsModalDescriptionInput = document.getElementById('detailsModalDescriptionInput');
-    const saveButton = document.getElementById('saveButton');
+    const saveTask = document.getElementById('saveTask');
     const id = document.getElementById('taskID').value;
     const cardTitle = document.getElementById(id);
     const updatedTask = {
@@ -86,7 +86,7 @@ async function saveTask() {
         detailsModalDescription.style.display = 'block';
         detailsModalTitleInput.style.display = 'none';
         detailsModalDescriptionInput.style.display = 'none';
-        saveButton.style.display = 'none';
+        saveTask.style.display = 'none';
         cardTitle.innerHTML = updatedTask.title;
         window.location.reload();
     } catch (error) {
