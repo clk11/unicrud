@@ -11,7 +11,6 @@ async function dropIt(ev) {
     let sourceIdParentEl = sourceIdEl.parentElement;
     let targetEl = document.getElementById(ev.target.id)
     let targetParentEl = targetEl.parentElement;
-    // targetEl.id,sourceIdEl.id
     const response = await fetch(`http://localhost:3000/tasks/${sourceIdEl.id}`, {
         method: 'PUT',
         headers: {

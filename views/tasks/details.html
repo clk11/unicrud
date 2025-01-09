@@ -1,19 +1,19 @@
 {{define "details"}}
-<div id="cardModal" class="modal" style="display: none;">
+<link rel="stylesheet" href="/static/css/modal.css">
+<div id="detailsModal" class="modal" style="display: none;">
     <div class="modal-content">
         <p id="modalDate" class="modal-date"></p>
-        <span class="close-button" onclick="closeModal()">&times;</span>
+        <span class="close-button" onclick="closeDetailsModal()">&times;</span>
         <span class="edit-icon" onclick="editModal()">&#9998;</span>
-        <h2 id="modalTitle" class="modal-title"></h2>
+        <h2 id="detailsModalTitle" class="modal-title"></h2>
         <input type="hidden" id="taskID" value="12345">
-        <input id="modalTitleInput" class="modal-title-input" style="display: none;" />
+        <input id="detailsModalTitleInput" class="modal-title-input" style="display: none;" />
 
-        <p id="modalDescription" class="modal-description"></p>
-        <textarea id="modalDescriptionInput" class="modal-description-input" style="display: none;"></textarea>
+        <p id="detailsModalDescription" class="modal-description"></p>
+        <textarea id="detailsModalDescriptionInput" class="modal-description-input" style="display: none;"></textarea>
 
-        <button id="saveButton" class="save-button" style="display: none;" onclick="saveModal()">Save</button>
+        <button id="saveButton" class="save-button" style="display: none;" onclick="saveTask()">Save</button>
     </div>
 </div>
-<link rel="stylesheet" href="/static/css/details.css">
-<script src="static/js/details.js"></script>
+<script src="/static/js/details.js"></script>
 {{end}}

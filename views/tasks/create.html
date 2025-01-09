@@ -1,3 +1,16 @@
 {{define "create"}}
-<h1>this is the create modal</h1>
+<link rel="stylesheet" href="/static/css/modal.css">
+<div id="createModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <input type="hidden" id="status" value="nil">
+
+        <span class="close-button" onclick="closeCreateModal()">&times;</span>
+        <h2>Create a new task</h2>
+        <input id="createTitleInput" class="modal-title-input" />
+        <textarea id="createDescriptionInput" class="modal-description-input"></textarea>
+
+        <button id="createButton" class="save-button" onclick="createTask()">Save</button>
+    </div>
+</div>
+<script src="/static/js/create.js"></script>
 {{end}}

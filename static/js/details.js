@@ -1,11 +1,11 @@
 function formatDate(rawDate) {
-    const options = { 
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric', 
-        hour: '2-digit', 
-        minute: '2-digit', 
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
         hour12: true
     };
 
@@ -14,58 +14,58 @@ function formatDate(rawDate) {
 }
 
 function showModal(title, description, rawDate, ID) {
-    const modal = document.getElementById('cardModal');
-    const modalTitle = document.getElementById('modalTitle');
+    const modal = document.getElementById('detailsModal');
+    const detailsModalTitle = document.getElementById('detailsModalTitle');
     const id = document.getElementById('taskID')
-    const modalDescription = document.getElementById('modalDescription');
+    const detailsModalDescription = document.getElementById('detailsModalDescription');
     const modalDate = document.getElementById('modalDate');
 
     id.value = ID;
-    modalTitle.textContent = title;
-    modalDescription.textContent = description;
+    detailsModalTitle.textContent = title;
+    detailsModalDescription.textContent = description;
     modalDate.textContent = formatDate(rawDate);
     modal.style.display = 'flex';
 }
 
-function closeModal() {
-    const modal = document.getElementById('cardModal');
+function closeDetailsModal() {
+    const modal = document.getElementById('detailsModal');
     modal.style.display = 'none';
 }
 
-window.onclick = function(event) {
-    const modal = document.getElementById('cardModal');
+window.onclick = function (event) {
+    const modal = document.getElementById('detailsModal');
     if (event.target === modal) {
         modal.style.display = 'none';
     }
 };
 
 function editModal() {
-    const modalTitle = document.getElementById('modalTitle');
-    const modalTitleInput = document.getElementById('modalTitleInput');
-    const modalDescription = document.getElementById('modalDescription');
-    const modalDescriptionInput = document.getElementById('modalDescriptionInput');
+    const detailsModalTitle = document.getElementById('detailsModalTitle');
+    const detailsModalTitleInput = document.getElementById('detailsModalTitleInput');
+    const detailsModalDescription = document.getElementById('detailsModalDescription');
+    const detailsModalDescriptionInput = document.getElementById('detailsModalDescriptionInput');
     const saveButton = document.getElementById('saveButton');
 
-    modalTitleInput.value = modalTitle.textContent;
-    modalDescriptionInput.value = modalDescription.textContent;
+    detailsModalTitleInput.value = detailsModalTitle.textContent;
+    detailsModalDescriptionInput.value = detailsModalDescription.textContent;
 
-    modalTitle.style.display = 'none';
-    modalDescription.style.display = 'none';
-    modalTitleInput.style.display = 'block';
-    modalDescriptionInput.style.display = 'block';
+    detailsModalTitle.style.display = 'none';
+    detailsModalDescription.style.display = 'none';
+    detailsModalTitleInput.style.display = 'block';
+    detailsModalDescriptionInput.style.display = 'block';
     saveButton.style.display = 'block';
 }
-async function saveModal() {
-    const modalTitle = document.getElementById('modalTitle');
-    const modalTitleInput = document.getElementById('modalTitleInput');
-    const modalDescription = document.getElementById('modalDescription');
-    const modalDescriptionInput = document.getElementById('modalDescriptionInput');
+async function saveTask() {
+    const detailsModalTitle = document.getElementById('detailsModalTitle');
+    const detailsModalTitleInput = document.getElementById('detailsModalTitleInput');
+    const detailsModalDescription = document.getElementById('detailsModalDescription');
+    const detailsModalDescriptionInput = document.getElementById('detailsModalDescriptionInput');
     const saveButton = document.getElementById('saveButton');
-    const id = document.getElementById('taskID').value; 
+    const id = document.getElementById('taskID').value;
     const cardTitle = document.getElementById(id);
     const updatedTask = {
-        title: modalTitleInput.value,
-        description: modalDescriptionInput.value,
+        title: detailsModalTitleInput.value,
+        description: detailsModalDescriptionInput.value,
     };
 
     try {
@@ -82,10 +82,10 @@ async function saveModal() {
             throw new Error(errorData.error || 'Failed to update task');
         }
 
-        modalTitle.style.display = 'block';
-        modalDescription.style.display = 'block';
-        modalTitleInput.style.display = 'none';
-        modalDescriptionInput.style.display = 'none';
+        detailsModalTitle.style.display = 'block';
+        detailsModalDescription.style.display = 'block';
+        detailsModalTitleInput.style.display = 'none';
+        detailsModalDescriptionInput.style.display = 'none';
         saveButton.style.display = 'none';
         cardTitle.innerHTML = updatedTask.title;
         window.location.reload();
