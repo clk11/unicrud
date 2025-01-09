@@ -1,6 +1,6 @@
 :root {
     --modal-padding: 2rem;
-    --modal-width: 90%; 
+    --modal-width: 90%;
     --modal-max-width: 32rem;
     --modal-bg-color: #fff;
     --modal-text-color: #333;
@@ -11,6 +11,7 @@
     --modal-border-radius: 0.8rem;
     --modal-heading-font: 'Roboto', sans-serif;
     --modal-body-font: 'Open Sans', sans-serif;
+    --modal-spacing: 1.2rem;
 }
 
 .modal {
@@ -44,17 +45,17 @@
     color: #777;
     font-style: italic;
     position: absolute;
-    top: 1.2rem;
-    left: 1.2rem;
+    top: 1rem;
+    left: 1rem;
     margin: 0;
     font-family: var(--modal-body-font);
 }
 
 .close-button {
     position: absolute;
-    top: 0.2rem;
+    top: 0.5rem;
     right: 1rem;
-    font-size: 1.9rem;
+    font-size: 2rem;
     font-weight: bold;
     color: red;
     cursor: pointer;
@@ -68,8 +69,7 @@
 .modal-title {
     font-size: var(--modal-title-font-size);
     font-weight: 600;
-    margin-top: 3rem; 
-    margin-bottom: 1rem;
+    margin: 2rem 0 1rem;
     font-family: var(--modal-heading-font);
     color: #222;
 }
@@ -83,7 +83,7 @@
 
 .edit-icon {
     position: absolute;
-    top: 0.5rem;
+    top: 1rem;
     right: 3.2rem;
     font-size: 1.5rem;
     color: rgb(160, 160, 6);
@@ -93,4 +93,47 @@
 
 .edit-icon:hover {
     color: black;
+}
+
+.modal-title-input {
+    width: 100%;
+    margin-top: 20px;
+    padding: 0.4rem;
+    font-size: var(--modal-title-font-size);
+    font-family: var(--modal-heading-font);
+    border: 1px solid #ccc;
+    border-radius: var(--modal-border-radius);
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: var(--modal-spacing);
+}
+
+.modal-description-input {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: var(--modal-description-font-size);
+    font-family: var(--modal-body-font);
+    border: 1px solid #ccc;
+    border-radius: var(--modal-border-radius);
+    box-sizing: border-box;
+    min-height: 4rem;
+    resize: vertical;
+    margin-bottom: var(--modal-spacing);
+}
+
+.save-button {
+    padding: 0.7rem 1.5rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: var(--modal-border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+.save-button:hover {
+    background-color: #0056b3;
 }

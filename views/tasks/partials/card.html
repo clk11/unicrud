@@ -1,5 +1,5 @@
 {{define "card"}}
-<div id="{{.ID}}" class="card" draggable="true" ondragstart="dragStart(event)" onclick="showModal('{{.Title}}', '{{.Description}}', '{{.Date}}')">
+<div id="{{.ID}}" class="card" draggable="true" ondragstart="dragStart(event)" onclick="showModal('{{.Title}}', '{{.Description}}', '{{.Date}}', '{{.ID}}')">
     {{.Title}}
 </div>
 {{end}}

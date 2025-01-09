@@ -2,23 +2,34 @@
 <div class="board-layout">
     {{template "details"}}
     <div id='boardlists' class="board-lists">
-        <div id='list1' class="board-list" ondrop="dropIt(event)" ondragover="allowDrop(event)">
+        <div id='backlog' class="board-list" ondrop="dropIt(event)" ondragover="allowDrop(event)">
             <div class="list-title">
-                Backlog
+                BACKLOG
             </div>
 
-            {{range .Tasks}}
+            {{range .Backlog}}
             {{template "card" .}}
             {{end}}
         </div>
-        <div id='list2' class="board-list" ondrop="dropIt(event)" ondragover="allowDrop(event)">
+        <div id='in_progress' class="board-list" ondrop="dropIt(event)" ondragover="allowDrop(event)">
             <div class="list-title">
-                In Progress
+                IN PROGRESS
+            </div>
+
+            <div class="list-title">
+                {{range .InProgress}}
+                {{template "card" .}}
+                {{end}}
             </div>
         </div>
-        <div id='list3' class="board-list" ondrop="dropIt(event)" ondragover="allowDrop(event)">
+        <div id='done' class="board-list" ondrop="dropIt(event)" ondragover="allowDrop(event)">
             <div class="list-title">
-                Done
+                DONE
+            </div>
+            <div class="list-title">
+                {{range .Done}}
+                {{template "card" .}}
+                {{end}}
             </div>
         </div>
     </div>

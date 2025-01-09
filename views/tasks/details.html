@@ -5,7 +5,13 @@
         <span class="close-button" onclick="closeModal()">&times;</span>
         <span class="edit-icon" onclick="editModal()">&#9998;</span>
         <h2 id="modalTitle" class="modal-title"></h2>
+        <input type="hidden" id="taskID" value="12345">
+        <input id="modalTitleInput" class="modal-title-input" style="display: none;" />
+
         <p id="modalDescription" class="modal-description"></p>
+        <textarea id="modalDescriptionInput" class="modal-description-input" style="display: none;"></textarea>
+
+        <button id="saveButton" class="save-button" style="display: none;" onclick="saveModal()">Save</button>
     </div>
 </div>
 <link rel="stylesheet" href="/static/css/details.css">

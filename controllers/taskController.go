@@ -18,9 +18,26 @@ func GetAllTasks(c *fiber.Ctx) error {
 	if err := config.DB.Find(&tasks).Error; err != nil {
 		return c.Status(500).JSON(fiber.Map{"error": "Failed to fetch tasks"})
 	}
-	// We don't need to add the "Template" key bacause its defaulted to index
+
+	var backlogTasks []models.Task
+	var inProgressTasks []models.Task
+	var doneTasks []models.Task
+
+	for _, task := range tasks {
+		switch task.Status {
+		case models.StatusBacklog:
+			backlogTasks = append(backlogTasks, task)
+		case models.StatusInProgress:
+			inProgressTasks = append(inProgressTasks, task)
+		case models.StatusDone:
+			doneTasks = append(doneTasks, task)
+		}
+	}
+
 	return c.Render("layout", fiber.Map{
-		"Tasks": tasks,
+		"Backlog":    backlogTasks,
+		"InProgress": inProgressTasks,
+		"Done":       doneTasks,
 	})
 }
 
