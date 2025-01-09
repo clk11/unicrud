@@ -1,65 +1,75 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .board-layout {
     background-color: rgb(100, 92, 165);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
+    font-size: 1.308rem;
     display: grid;
     grid-template-rows: max-content auto;
-    grid-gap: 10px;
-    padding: 10px;
-    height: 800px;
+    grid-gap: 1.635rem;
+    padding: 1.635rem;
+    height: 81.75rem;
+    width: 100vw;   
+    margin: 0;
 }
 
 .list-layout {
     display: grid;
-    grid-gap: 10px;
+    grid-gap: 1.635rem;
 }
 
 .board-text {
     font-weight: bold;
-    font-size: 28px;
-    padding: 5px;
+    font-size: 2.0928rem;
+    padding: 1rem;
 }
 
 .board-lists {
     display: grid;
-    grid-auto-columns: 275px;
+    grid-auto-columns: 28.09125rem;
     grid-auto-flow: column;
-    grid-gap: 10px;
-    height: 400px;
+    grid-gap: 1.635rem;
+    height: 40.875rem;
 }
 
 .board-list {
     background-color: rgb(235, 236, 240);
-    border-radius: 3px;
+    border-radius: 0.31rem;
     display: grid;
     grid-auto-rows: max-content;
-    grid-gap: 10px;
-    height: 300px;
-    padding: 10px;
+    grid-gap: 1.635rem;
+    height: 30.65625rem;
+    padding: 1.635rem;
 }
 
 .list-title-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 10px;
+    padding: 1rem 1.635rem;
 }
 
 .list-title {
-    font-size: 18px;
+    font-size: 1.4658rem;
     font-weight: bold;
 }
 
 .card {
     background-color: white;
-    border-radius: 3px;
-    box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
-    padding: 10px;
+    border-radius: 0.31rem;
+    box-shadow: 0 0.1rem 0 rgba(9, 30, 66, 0.25);
+    padding: 1.635rem;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
+    font-size: 1.308rem;
 }
 
 .card button.delete-btn {
@@ -67,10 +77,10 @@
     background-color: red;
     color: white;
     border: none;
-    border-radius: 3px;
-    font-size: 1em;
+    border-radius: 0.31rem;
+    font-size: 1.308rem;
     font-weight: bold;
-    padding: 5px;
+    padding: 0.635rem;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
     opacity: 0;
@@ -79,7 +89,7 @@
 .card:hover button.delete-btn {
     visibility: visible;
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 .card button.delete-btn:hover {
@@ -90,9 +100,9 @@
     background-color: #5aac44;
     color: white;
     border: none;
-    border-radius: 3px;
-    padding: 5px 10px;
-    font-size: 14px;
+    border-radius: 0.31rem;
+    padding: 0.635rem 1.635rem;
+    font-size: 1.108rem;
     font-weight: bold;
     cursor: pointer;
     display: inline-flex;
@@ -100,8 +110,8 @@
 }
 
 .add-task-btn .icon {
-    font-size: 18px;
-    margin-right: 5px;
+    font-size: 1.4658rem;
+    margin-right: 0.635rem;
 }
 
 .add-task-btn:hover {
