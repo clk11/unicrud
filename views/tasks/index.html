@@ -16,21 +16,17 @@
                 IN PROGRESS
             </div>
 
-            <div class="list-title">
-                {{range .InProgress}}
-                {{template "card" .}}
-                {{end}}
-            </div>
+            {{range .InProgress}}
+            {{template "card" .}}
+            {{end}}
         </div>
         <div id='done' class="board-list" ondrop="dropIt(event)" ondragover="allowDrop(event)">
             <div class="list-title">
                 DONE
             </div>
-            <div class="list-title">
-                {{range .Done}}
-                {{template "card" .}}
-                {{end}}
-            </div>
+            {{range .Done}}
+            {{template "card" .}}
+            {{end}}
         </div>
     </div>
 </div>

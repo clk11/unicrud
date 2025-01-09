@@ -82,15 +82,13 @@ async function saveModal() {
             throw new Error(errorData.error || 'Failed to update task');
         }
 
-        modalTitle.textContent = modalTitleInput.value;
-        modalDescription.textContent = modalDescriptionInput.value;
-
         modalTitle.style.display = 'block';
         modalDescription.style.display = 'block';
         modalTitleInput.style.display = 'none';
         modalDescriptionInput.style.display = 'none';
         saveButton.style.display = 'none';
         cardTitle.innerHTML = updatedTask.title;
+        window.location.reload();
     } catch (error) {
         console.error('Error updating task:', error.message);
         alert('Failed to update the task. Please try again.');
