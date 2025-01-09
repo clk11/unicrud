@@ -1,8 +1,8 @@
 {{define "content"}}
 <div class="board-layout">
+    {{template "create"}}
     {{template "details"}}
     <div id='boardlists' class="board-lists">
-        <!-- Backlog Section -->
         <div id='backlog' class="board-list" ondrop="dropIt(event)" ondragover="allowDrop(event)">
             <div class="list-title-container" ondragover="event.stopPropagation();" ondrop="event.stopPropagation();">
                 <div class="list-title">
@@ -17,7 +17,6 @@
             {{end}}
         </div>
 
-        <!-- In Progress Section -->
         <div id='in_progress' class="board-list" ondrop="dropIt(event)" ondragover="allowDrop(event)">
             <div class="list-title-container" ondragover="event.stopPropagation();" ondrop="event.stopPropagation();">
                 <div class="list-title">
@@ -32,7 +31,6 @@
             {{end}}
         </div>
 
-        <!-- Done Section -->
         <div id='done' class="board-list" ondrop="dropIt(event)" ondragover="allowDrop(event)">
             <div class="list-title-container" ondragover="event.stopPropagation();" ondrop="event.stopPropagation();">
                 <div class="list-title">
