@@ -53,9 +53,37 @@
 .card {
     background-color: white;
     border-radius: 3px;
-    box-shadow: 0 1px 0 rgba(9, 30, 66, .25);
+    box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
     padding: 10px;
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.card button.delete-btn {
+    visibility: hidden;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0;
+}
+
+.card:hover button.delete-btn {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.card button.delete-btn:hover {
+    background-color: darkred;
 }
 
 .add-task-btn {

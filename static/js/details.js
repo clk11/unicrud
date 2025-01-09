@@ -13,6 +13,7 @@ function formatDate(rawDate) {
     return date.toLocaleDateString('en-US', options);
 }
 
+
 function showModal(title, description, rawDate, ID) {
     const modal = document.getElementById('detailsModal');
     const detailsModalTitle = document.getElementById('detailsModalTitle');
