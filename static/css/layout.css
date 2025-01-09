@@ -41,6 +41,7 @@
 }
 
 .list-title {
+    pointer-events: none;
     font-size: 18px;
     font-weight: bold;
 }
