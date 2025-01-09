@@ -1,1 +1,16 @@
-create
+{{define "create"}}
+<link rel="stylesheet" href="/static/css/modal.css">
+<div id="createModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <input type="hidden" id="status" value="nil">
+
+        <span class="close-button" onclick="closeCreateModal()">&times;</span>
+        <h2>Create a new task</h2>
+        <input placeholder="Title" id="createModalTitleInput" class="modal-title-input" />
+        <textarea placeholder="Description" id="createModalDescriptionInput" class="modal-description-input"></textarea>
+
+        <button id="createButton" class="save-button" onclick="createTask()">Create</button>
+    </div>
+</div>
+<script src="/static/js/create.js"></script>
+{{end}}

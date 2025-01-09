@@ -22,3 +22,4 @@ tasks.db
 tasks.db
 tmp
 .main
+.air.toml

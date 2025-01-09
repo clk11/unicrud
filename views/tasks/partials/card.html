@@ -1,5 +1,8 @@
 {{define "card"}}
-<div id="{{.ID}}" class="card" draggable="true" ondragstart="dragStart(event)" onclick="showModal('{{.Title}}', '{{.Description}}', '{{.Date}}')">
-    {{.Title}}
+<div id="{{.ID}}" class="card" draggable="true" ondragstart="dragStart(event)" ondragover="event.stopPropagation();"
+    onclick="showModal('{{.Title}}', '{{.Description}}', '{{.Date}}', '{{.ID}}')">
+    <span>{{.Title}}</span>
+    <button class="delete-btn" onclick="deleteTask(event,'{{.ID}}')">X</button>
 </div>
+<script src="/static/js/delete.js"></script>
 {{end}}
