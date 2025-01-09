@@ -1,5 +1,5 @@
 {{define "container"}}
-<div class="list">
+<div class="list" data-id="{{.ID}}" data-index="{{.Index}}">
     <div class="title removable editable">{{.Title}}</div>
     <div class="content">
         {{range .Tasks}}

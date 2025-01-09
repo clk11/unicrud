@@ -46,7 +46,10 @@ func CreateContainer(c *fiber.Ctx) error {
 		})
 	}
 
-	return c.Status(201).JSON(container)
+	return c.Status(201).JSON(fiber.Map{
+		"id":    container.ID,
+		"index": container.Index,
+	})
 }
 func UpdateContainer(c *fiber.Ctx) error {
 	id := c.Params("id")
